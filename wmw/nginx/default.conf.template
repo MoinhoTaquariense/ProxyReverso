@@ -2,6 +2,9 @@ server {
     listen 80;
     server_name ${SERVER_NAME};
 
+    access_log /dev/stdout combined;
+    error_log /dev/stderr notice;
+
     # Permite upload maior para aplicações com anexos.
     client_max_body_size 50m;
 
@@ -15,15 +18,18 @@ server {
     }
 
     location / {
-        proxy_pass http://${APP_UPSTREAM_HOST}:${APP_UPSTREAM_PORT};
+        # APP_UPSTREAM_PREFIX vazio: repassa URI inteira. Ex.: /motasa/ repassa com prefixo cortado e URI anexada.
+        proxy_pass ${APP_UPSTREAM_SCHEME}://${APP_UPSTREAM_HOST}:${APP_UPSTREAM_PORT}${APP_UPSTREAM_PREFIX};
         proxy_http_version 1.1;
 
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Proto $motasa_forwarded_proto;
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Port $server_port;
+
+        proxy_redirect off;
 
         proxy_connect_timeout 10s;
         proxy_read_timeout 60s;
