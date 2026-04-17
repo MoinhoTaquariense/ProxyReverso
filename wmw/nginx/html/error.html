@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motasa | Servico indisponivel</title>
+    <style>
+      :root {
+        --motasa-green: #7bbf2f;
+        --motasa-blue: #0096d6;
+        --motasa-orange: #f4a32f;
+        --bg-light: #f4f8fb;
+        --text-dark: #243445;
+        --text-soft: #5f7182;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(120deg, var(--bg-light), #ffffff);
+        color: var(--text-dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 680px;
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 36px 30px;
+        box-shadow: 0 18px 45px rgba(36, 52, 69, 0.14);
+        border-top: 7px solid var(--motasa-green);
+        text-align: center;
+      }
+
+      .logo {
+        width: min(320px, 70%);
+        height: auto;
+        margin-bottom: 22px;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: 1.8rem;
+        color: var(--motasa-blue);
+      }
+
+      p {
+        margin: 0 auto 10px;
+        max-width: 530px;
+        line-height: 1.55;
+        color: var(--text-soft);
+      }
+
+      .code {
+        display: inline-block;
+        margin-top: 14px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(244, 163, 47, 0.14);
+        color: #8a5a07;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <img
+        class="logo"
+        src="https://motasa.com.br/wp-content/uploads/2024/04/LOGO-MOTASA-COLORIDO.svg"
+        alt="Motasa"
+      />
+      <h1>Estamos ajustando este servico</h1>
+      <p>
+        No momento não foi possível concluir a sua solicitação. Isso pode ocorrer por
+        indisponibilidade temporaria da aplicação interna.
+      </p>
+      <p>Tente novamente em alguns instantes.</p>
+      <p>Se o problema persistir, entre em contato com o suporte.</p>
+      <span class="code">HTTP ERROR</span>
+    </main>
+  </body>
+</html>
